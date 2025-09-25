@@ -1,1 +1,6 @@
-<p>list-products works!</p>
+
+<div class="content">
+    <p>list-products works!</p>
+    <button (click)="openSidepanel = true">Open Sidepanel</button>
+    <sidepanel-edit-products [(isOpen)]="openSidepanel" ></sidepanel-edit-products>
+</div>

@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
 
-  apiProducts: `https://fakestoreapi.com/products`,
+  apiUrl: `https://fakestoreapi.com/`,
   authEndpoint: `https://fakestoreapi.com/auth/login`
 }

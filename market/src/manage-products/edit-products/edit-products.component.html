@@ -1,1 +1,13 @@
-<p>edit-products works!</p>
+<div class="esp-all" *ngIf="isOpen" (click)="closePanel()">
+	<div class="esp-side" (click)="$event.stopPropagation()">
+		<div class="esp-content">
+			<div class="content">
+				<h2>Edit Product</h2>
+				<!-- Product form or details go here -->
+			</div>
+		</div>
+		<div class="esp-footer esp-shadow">
+			<button (click)="closePanel()">Close</button>
+		</div>
+	</div>
+</div>
