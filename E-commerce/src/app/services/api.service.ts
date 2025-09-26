@@ -43,7 +43,7 @@ export class ApiService {
 
   public performDelete<T> (url: string): Observable<T> {
     const apiUrl = this.environment.apiUrl + url;
-    return this.http.get<T>(apiUrl);
+    return this.http.delete<T>(apiUrl);
   }
 
 }

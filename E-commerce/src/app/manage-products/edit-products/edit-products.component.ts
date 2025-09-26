@@ -64,7 +64,7 @@ export class EditProductsComponent implements OnInit {
       }))
       .subscribe((response) => {
         console.log('Edit response', response);
-        this.showMessage =  'Product edited successfully';
+        this.showMessage =  'Product saved successfully';
         this.validatorService.errorList = [];
         this.readonly = true;
         this.productSelectedChange.emit(response);
@@ -87,7 +87,7 @@ export class EditProductsComponent implements OnInit {
       }))
       .subscribe((response) => {
         console.log('Edit response', response);
-        this.showMessage =  'Product edited successfully';
+        this.showMessage =  'Product saved successfully';
         this.validatorService.errorList = [];
         this.productSelectedChange.emit(response);
         this.readonly = true;

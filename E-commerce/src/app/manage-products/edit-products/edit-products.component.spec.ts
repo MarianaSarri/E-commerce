@@ -5,6 +5,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { environment } from '../../../../env/env';
 import { ProductsService } from '../products.service';
 import { EditProductsComponent } from './edit-products.component';
+import { FormsModule } from '@angular/forms';
 
 describe('EditProductsComponent', () => {
   let component: EditProductsComponent;
@@ -20,7 +21,7 @@ describe('EditProductsComponent', () => {
             useValue: environment
         }
       ],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, FormsModule],
       schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();

@@ -57,12 +57,14 @@ npm test
 ## Roadmap
 
 **Short Term**
+- Add rating for products
 - Improve product form validation and error handling
-- Add loading indicators and 
+- Add loading indicators 
 - confirmation and feedback messages
-- Improve unit test coverage and add integration tests
+- Improve unit test coverage
 
 **Medium Term**
+- Add integration tests
 - Polish UI/UX for mobile and desktop
 - Implement user authentication (login/logout)
 - Integrate product categories and filtering
