@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { ListProductsService } from '../products.service';
+import { ProductsService } from '../products.service';
 import { finalize } from 'rxjs';
 import { Product } from '../../models/products';
 import { ValidatorService } from '../../services/validator.service';
@@ -20,7 +20,7 @@ export class EditProductsComponent implements OnInit {
   showMessage: string = '';
 
   constructor(
-    private productService: ListProductsService,
+    private productService: ProductsService,
     public validatorService: ValidatorService
   ) { }
 

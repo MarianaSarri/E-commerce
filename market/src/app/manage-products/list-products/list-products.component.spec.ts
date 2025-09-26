@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { environment } from '../../../../env/env';
+import { ProductsService } from '../products.service';
 import { ListProductsComponent } from './list-products.component';
 
 describe('ListProductsComponent', () => {
@@ -8,10 +12,19 @@ describe('ListProductsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ListProductsComponent]
+      declarations: [ListProductsComponent],
+      providers: [
+        ProductsService,
+        {
+          provide: 'environment',
+          useValue: environment
+        }
+      ],
+      imports: [HttpClientModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(ListProductsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

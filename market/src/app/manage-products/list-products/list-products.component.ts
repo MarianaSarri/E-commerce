@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ListProductsService } from '../products.service';
+import { ProductsService } from '../products.service';
 import { finalize, tap } from 'rxjs';
 import { Product } from '../../models/products';
 
@@ -16,34 +16,34 @@ export class ListProductsComponent {
   public productSelected: Product = {} as Product;
 
   constructor(
-    private productService: ListProductsService,
+    private productService: ProductsService,
   ) { }
 
   ngOnInit(): void {
     this.productService.getAllProducts()
-    .pipe(
+      .pipe(
         finalize(() => {
-        console.log('Finalized');
-      })
-    ).subscribe((response: Product[]) => {
-      this.allProducts = response;
-      this.totalProducts = response.length;
-      console.log('Response', response);
-    });
-  } 
+          console.log('Finalized');
+        })
+      ).subscribe((response: Product[]) => {
+        this.allProducts = response;
+        this.totalProducts = response.length;
+        console.log('Response', response);
+      });
+  }
 
   openPanel(productId: number = 0) {
     this.openSidepanel = true;
     this.productSelected = {} as Product;
-    
-    if(productId != 0){
+
+    if (productId != 0) {
       this.productService.getProduct(productId)
-      .pipe(finalize(() => {
-        console.log('Finalized');
-      }))
-      .subscribe((response) => {
-        this.productSelected = response;
-      });
+        .pipe(finalize(() => {
+          console.log('Finalized');
+        }))
+        .subscribe((response) => {
+          this.productSelected = response;
+        });
     }
   }
 
@@ -54,7 +54,7 @@ export class ListProductsComponent {
   updateCard(updatedProduct: Product) {
     const index = this.allProducts.findIndex(p => p.id === updatedProduct.id);
     if (index !== -1) {
-      this.allProducts[index] = updatedProduct; 
+      this.allProducts[index] = updatedProduct;
     }
   }
 }

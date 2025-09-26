@@ -1,5 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { environment } from '../../../../env/env';
+import { ProductsService } from '../products.service';
 import { EditProductsComponent } from './edit-products.component';
 
 describe('EditProductsComponent', () => {
@@ -8,7 +12,16 @@ describe('EditProductsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [EditProductsComponent]
+      declarations: [EditProductsComponent],
+      providers: [
+        ProductsService,
+        {
+            provide: 'environment',
+            useValue: environment
+        }
+      ],
+      imports: [HttpClientModule],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA]
     })
     .compileComponents();
     
