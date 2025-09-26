@@ -54,6 +54,17 @@ npm test
 - SCSS
 - RxJS
 
+## GitHub Actions
+This project uses GitHub Actions to automate quality checks on every pull request.
+When a pull request is opened or updated, the following checks are performed automatically:
+
+- Install dependencies
+- Build the project
+- Run unit tests
+
+Pull requests must pass all checks before they can be merged.
+This ensures code quality and helps prevent regressions.
+
 ## Roadmap
 
 **Short Term**
