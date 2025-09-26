@@ -1,6 +1,6 @@
 # E-commerce
 
-Mercadinho is a web application developed with Angular for managing products in a small market. The project allows you to list, edit, insert, and delete products, with a modern and responsive interface.
+E-commerce is a web application developed with Angular for managing products in a small market. The project allows you to list, edit, insert, and delete products, with a modern and responsive interface.
 
 ## Features
 
