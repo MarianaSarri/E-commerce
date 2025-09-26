@@ -1,6 +1,7 @@
 <div class="header">
     <h1>New E-commerce</h1>
     <h2>List Products: {{ totalProducts }} items</h2>
+    <button (click)="openPanel()">Add Product</button>
 </div>  
 <div class="content">
     @for(product of allProducts; track trackById($index, product)) {
@@ -12,4 +13,5 @@
         </div>
     }
 </div>
-<sidepanel-edit-products [(isOpen)]="openSidepanel" [productSelected]="productSelected"></sidepanel-edit-products>
+<sidepanel-edit-products [(isOpen)]="openSidepanel" [productSelected]="productSelected"
+(productSelectedChange)="updateCard($event)"></sidepanel-edit-products>

@@ -32,19 +32,29 @@ export class ListProductsComponent {
     });
   } 
 
-  openPanel(productId: number) {
+  openPanel(productId: number = 0) {
     this.openSidepanel = true;
-
-    this.productService.getProduct(productId)
+    this.productSelected = {} as Product;
+    
+    if(productId != 0){
+      this.productService.getProduct(productId)
       .pipe(finalize(() => {
         console.log('Finalized');
       }))
       .subscribe((response) => {
         this.productSelected = response;
       });
+    }
   }
 
   trackById(index: number, item: Product) {
     return item.id;
+  }
+
+  updateCard(updatedProduct: Product) {
+    const index = this.allProducts.findIndex(p => p.id === updatedProduct.id);
+    if (index !== -1) {
+      this.allProducts[index] = updatedProduct; 
+    }
   }
 }
