@@ -1,6 +1,15 @@
-
+<div class="header">
+    <h1>New E-commerce</h1>
+    <h2>List Products: {{ totalProducts }} items</h2>
+</div>  
 <div class="content">
-    <p>list-products works!</p>
-    <button (click)="openSidepanel = true">Open Sidepanel</button>
-    <sidepanel-edit-products [(isOpen)]="openSidepanel" ></sidepanel-edit-products>
+    @for(product of allProducts; track trackById($index, product)) {
+        <div class="product-card">
+            <h3>{{ product.title }} - {{ product.price | currency }}</h3>
+            <div class="description" >{{ product.description }} </div>
+            <img [src]="product.image" alt="{{ product.title }}" />
+            <button (click)="openPanel(product.id)">View/Edit Product</button>
+        </div>
+    }
 </div>
+<sidepanel-edit-products [(isOpen)]="openSidepanel" [productSelected]="productSelected"></sidepanel-edit-products>

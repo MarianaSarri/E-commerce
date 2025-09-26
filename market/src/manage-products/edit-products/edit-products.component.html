@@ -1,13 +1,20 @@
-<div class="esp-all" *ngIf="isOpen" (click)="closePanel()">
-	<div class="esp-side" (click)="$event.stopPropagation()">
-		<div class="esp-content">
-			<div class="content">
-				<h2>Edit Product</h2>
-				<!-- Product form or details go here -->
+
+@if(isOpen){
+	<div class="esp-all">
+		<div class="esp-side" (click)="$event.stopPropagation()">
+			<div class="esp-content">
+				<button (click)="editPanel()">Edit</button>
+				<button (click)="closePanel()" style="float: right;">X</button>
+				<div class="content">
+					<h2>{{productSelected.title}}</h2>
+					<!-- Product form or details go here -->
+				</div>
+			</div>
+			<div class="esp-footer esp-shadow">
+				<button (click)="closePanel()">Close</button>
+				<button (click)="editProduct()">Save</button>
 			</div>
 		</div>
-		<div class="esp-footer esp-shadow">
-			<button (click)="closePanel()">Close</button>
-		</div>
 	</div>
-</div>
+}
+

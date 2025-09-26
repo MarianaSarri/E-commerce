@@ -1,6 +1,96 @@
 
-content {
+.header{
+  align-items: center;
+}
+
+.content {
   flex: 1;
   overflow: auto;
   height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .product-card{
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 350px; /* altura fixa para garantir o posicionamento do botão */
+    position: relative;
+
+    .description {
+      max-width: 250px;
+      font-size: 1em;             
+      overflow: auto;
+      height: 100px;
+    }
+
+    h3 {
+      max-width: 250px;
+      margin-top: 0;
+      font-size: 1.5em;
+      color: #333;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    p {
+      color: #666;
+      font-size: 1em;
+      line-height: 1.4;
+    }
+
+    img {
+      max-width: 30%;
+      height: auto;
+      border-radius: 4px;
+      margin-top: 30px;
+      display: flex;
+    }
+
+    button {
+      margin-top: auto;
+      padding: 8px 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      align-self: flex-end;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+
+    /* min-width & max-width */
+  @media screen and (min-width: 900px) {
+      .product-card{
+          width: 20%;
+      }
+      
+  }
+
+  /* min-width & max-width */
+  @media screen and (min-width: 480px) and (max-width: 900px) {
+      .product-card{
+        width: 15%;
+      }
+      
+  }
+
+  /* max device width */
+  @media screen and (max-width: 480px) {
+      .product-card{
+          width: 10%;
+      }
+  }
 }
+

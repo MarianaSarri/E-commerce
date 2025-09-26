@@ -1,27 +1,53 @@
-# Market
+# Mercadinho
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Mercadinho is a web application developed with Angular for managing products in a small market. The project allows you to perform list, edit, and delete products.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Login:** User authentication. **to be implemented**
+- **Products Management:** Listing, editing, and administration of market products.
+- **Modern Interface:** Uses Angular 17+ and SCSS for styling.
 
-## Code scaffolding
+## Project Structure
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- `src/app/login/`: Login module and components.
+- `src/app/manage-products/`: Module for product management, including listing and editing.
+- `src/env/`: Environment configurations.
+- `src/assets/`: Static resources.
 
-## Build
+## How to run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm start
+   ```
+   Access `http://localhost:4200/` in your browser.
 
-## Running unit tests
+## Available scripts
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- `npm start`: Starts the development server.
+- `npm run build`: Builds the project.
+- `npm test`: Runs unit tests.
 
-## Running end-to-end tests
+## Tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Unit tests are performed with Karma and Jasmine. To run the tests:
+```bash
+npm test
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Technologies
+
+- Angular 17+
+- TypeScript
+- SCSS
+- RxJS
+
+## Contribution
+
+Feel free to open issues and pull requests!
