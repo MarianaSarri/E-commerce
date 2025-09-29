@@ -37,14 +37,13 @@ export class EditProductsComponent implements OnInit {
   }
 
   deleteProduct() {
-    console.log('Deleting product:', this.productSelected);
     this.productService.DeleteProduct(this.productSelected.id)
       .pipe(finalize(() => {
         console.log('Finalized delete');
-        this.closePanel();
       }))
-      .subscribe((response) => {
-        console.log('Delete response', response);
+      .subscribe(() => {
+        this.productSelectedChange.emit({} as Product);
+        this.closePanel();
       });
   }
 
@@ -53,17 +52,14 @@ export class EditProductsComponent implements OnInit {
     
     if(this.validatorService.errorList.length > 0){
       this.showMessage = '';
-      console.log('Validation errors:', this.validatorService.errorList);
       return;
     }
 
-    console.log('Editing product:', this.productSelected);
     this.productService.UpdateProduct(this.productSelected.id, this.productSelected)
       .pipe(finalize(() => {
         console.log('Finalized edit');
       }))
       .subscribe((response) => {
-        console.log('Edit response', response);
         this.showMessage =  'Product saved successfully';
         this.validatorService.errorList = [];
         this.readonly = true;
@@ -71,22 +67,19 @@ export class EditProductsComponent implements OnInit {
       });
   }
 
-    InsertProduct() {
+  InsertProduct() {
     this.validatorService.validateForm<Product>(this.productSelected);
     
     if(this.validatorService.errorList.length > 0){
       this.showMessage = '';
-      console.log('Validation errors:', this.validatorService.errorList);
       return;
     }
 
-    console.log('insert product:', this.productSelected);
     this.productService.insertProduct(this.productSelected)
       .pipe(finalize(() => {
         console.log('Finalized insert');
       }))
       .subscribe((response) => {
-        console.log('Edit response', response);
         this.showMessage =  'Product saved successfully';
         this.validatorService.errorList = [];
         this.productSelectedChange.emit(response);
@@ -102,9 +95,7 @@ export class EditProductsComponent implements OnInit {
     }
   }
 
-
   editPanel(){
-    console.log('Editing panel:', this.productSelected);
     this.readonly = false;
   }
 

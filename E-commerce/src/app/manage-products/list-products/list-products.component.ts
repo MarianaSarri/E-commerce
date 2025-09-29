@@ -28,7 +28,6 @@ export class ListProductsComponent {
       ).subscribe((response: Product[]) => {
         this.allProducts = response;
         this.totalProducts = response.length;
-        console.log('Response', response);
       });
   }
 
@@ -52,9 +51,16 @@ export class ListProductsComponent {
   }
 
   updateCard(updatedProduct: Product) {
-    const index = this.allProducts.findIndex(p => p.id === updatedProduct.id);
+    let index = this.allProducts.findIndex(p => p.id === updatedProduct?.id);
     if (index !== -1) {
-      this.allProducts[index] = updatedProduct;
+        this.allProducts[index] = updatedProduct;
+    } else if(updatedProduct?.id){
+        this.allProducts.push(updatedProduct);
+        this.totalProducts++;
+    } else {
+      let i = this.allProducts.findIndex(p => p.id === this.productSelected?.id);
+      this.allProducts.splice(i,1)
+      this.totalProducts--;
     }
   }
 }
