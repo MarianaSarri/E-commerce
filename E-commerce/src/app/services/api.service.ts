@@ -37,7 +37,6 @@ export class ApiService {
 
   public performGet<T> (url: string): Observable<T> {
     const apiUrl = this.environment.apiUrl + url;
-    console.log('GET to: ', apiUrl);
     return this.http.get<T>(apiUrl);
   }
 
