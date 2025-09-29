@@ -19,6 +19,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
-      working-directory: ./E-commerce/package.json
     - run: npm run build --if-present
     - run: npm test
